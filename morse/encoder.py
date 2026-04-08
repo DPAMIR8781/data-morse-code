@@ -9,29 +9,40 @@ Functions:
 
 from morse.mapping import MORSE
 
-def encode(text):
-    """
-    Encodes the given text into Morse code.
-    Words are separated by a pipe (|) and letters by a space.
-    """
-    pass  # YOUR CODE HERE
-
 
 def encode_word(word):
-    """
-    Encodes a single word into Morse code.
-    Letters are separated by a space.
-    """
-    pass  # YOUR CODE HERE
+    word = word.upper()
+
+    letters = []
+    for char in word:
+        if char in MORSE:
+            letters.append(MORSE[char])
+
+    return " ".join(letters)
+
+
+def encode(text):
+    text = text.upper()
+
+    clean_text = ""
+    for char in text:
+        if char.isalpha() or char == " ":
+            clean_text += char
+
+    words = clean_text.split()
+
+    encoded_words = []
+    for word in words:
+        encoded_words.append(encode_word(word))
+
+    return "|".join(encoded_words)
 
 
 if __name__ == "__main__":
-    # Example usage for one word
     EXAMPLE_TEXT = "abc"
     ENCODED_TEXT = encode_word(EXAMPLE_TEXT)
     print(f"Encoded word '{EXAMPLE_TEXT}' to Morse code: '{ENCODED_TEXT}'")
 
-    # Example usage for a sentence
     EXAMPLE_TEXT = "abc ABC"
     ENCODED_TEXT = encode(EXAMPLE_TEXT)
     print(f"Encoded '{EXAMPLE_TEXT}' to Morse code: '{ENCODED_TEXT}'")
