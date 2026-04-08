@@ -11,6 +11,7 @@ from morse.mapping import MORSE
 
 
 def encode_word(word):
+    """Encode a single word into Morse code."""
     word = word.upper()
 
     letters = []
@@ -22,6 +23,7 @@ def encode_word(word):
 
 
 def encode(text):
+    """Encode text into Morse code."""
     text = text.upper()
 
     clean_text = ""
@@ -39,10 +41,10 @@ def encode(text):
 
 
 if __name__ == "__main__":
-    EXAMPLE_TEXT = "abc"
-    ENCODED_TEXT = encode_word(EXAMPLE_TEXT)
-    print(f"Encoded word '{EXAMPLE_TEXT}' to Morse code: '{ENCODED_TEXT}'")
+    example_text = "abc"
+    encoded_text = encode_word(example_text)
+    print(f"Encoded word '{example_text}' to Morse code: '{encoded_text}'")
 
-    EXAMPLE_TEXT = "abc ABC"
-    ENCODED_TEXT = encode(EXAMPLE_TEXT)
-    print(f"Encoded '{EXAMPLE_TEXT}' to Morse code: '{ENCODED_TEXT}'")
+    example_text = "abc ABC"
+    encoded_text = encode(example_text)
+    print(f"Encoded '{example_text}' to Morse code: '{encoded_text}'")
